@@ -1,0 +1,40 @@
+{
+  "Main": {
+    "menu_item": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "link_display": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph",
+              "label": "link_display",
+              "placeholder": "link title"
+            }
+          },
+          "where_to": {
+            "type": "Select",
+            "config": {
+              "options": [
+                "/",
+                "/about",
+                "/map",
+                "externe link"
+              ],
+              "label": "where_to"
+            }
+          },
+          "externe_link_adress": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph",
+              "label": "externe_link_adress",
+              "placeholder": "link naar externe site"
+            }
+          }
+        },
+        "label": "menu_item"
+      }
+    }
+  }
+}

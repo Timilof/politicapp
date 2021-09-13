@@ -1,0 +1,60 @@
+{
+    "Main" : {
+      "uid" : {
+        "type" : "UID",
+        "config" : {
+          "label" : "uid"
+        }
+      },
+      "cover" : {
+        "type" : "Image",
+        "config" : {
+          "constraint" : { },
+          "thumbnails" : [ ],
+          "label" : "cover"
+        }
+      },
+      "title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1",
+          "label" : "title"
+        }
+      },
+      "location" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph",
+          "label" : "location"
+        }
+      },
+      "date" : {
+        "type" : "Date",
+        "config" : {
+          "label" : "date"
+        }
+      },
+      "time" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph",
+          "label" : "time"
+        }
+      },
+      "price" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph",
+          "label" : "price"
+        }
+      },
+      "event_type" : {
+        "type" : "Select",
+        "config" : {
+          "options" : [ "discussion", "lecture", "film" ],
+          "default_value" : "discussion",
+          "label" : "event_type"
+        }
+      }
+    }
+  }
