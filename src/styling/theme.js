@@ -8,6 +8,7 @@ const theme = {
     textColor: '#fff',
     blue: '#1552F0',
     red: '#E84D43',
+    white:'#fff',
     green:'#2CB04C',
   
     // Fonts

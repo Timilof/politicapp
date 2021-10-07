@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 
-import { Link } from "gatsby"
 import styled from 'styled-components';
 
 import LogoSrc from "../images/politicapp_logo.svg"
@@ -59,6 +58,13 @@ const Logo = styled.img`
     }
 `;
 
+const ToMap = styled(Link)`
+    color: #000;
+    text-decoration: underline;
+    padding: 20px;
+    margin: 0 80px 0 auto;
+`;
+
 const Header = ({ siteTitle }) => {
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -89,6 +95,7 @@ const Header = ({ siteTitle }) => {
       <LogoLink to="/">
           <Logo menuOpen={menuOpen} src={LogoSrc} alt="Go to politicapp home"/>
       </LogoLink>
+      <ToMap to="/map">Map</ToMap>
       <MenuButton menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
       <MobileMenu data={cleanedData} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <DesktopMenu data={cleanedData} />

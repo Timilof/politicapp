@@ -5,6 +5,7 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+    "@babel/plugin-proposal-logical-assignment-operators",
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -30,8 +31,9 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `Epilogue`,
-          `Viga`,
+          `Abril Fatface`,
+          'Alata',
+          'K2D',
           `Sarabun` // you can also specify font weights and styles
         ],
         display: 'swap'

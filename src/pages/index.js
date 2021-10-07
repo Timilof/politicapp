@@ -27,7 +27,7 @@ const IndexPage = ({ data }) => {
           title={event.data.title.text}
           event_type={event.data.event_type}
           date={event.data.date}
-          location={event.data.location.text}
+          location={event.data.geo_location}
           price={event.data.price.text}
           time={event.data.time.text}
           cover={event.data.cover.url}
@@ -37,7 +37,7 @@ const IndexPage = ({ data }) => {
   return(
     <>
     <Layout background={`#fff`}>
-      <SEO title="PoliticApp home" />
+      <SEO title="Discover political events in the city" />
      
       {eventList}
     </Layout>
@@ -61,9 +61,7 @@ export const HOMEPAGE_QUERY = graphql`{
           text
         }
         date
-        location{
-          text
-        }
+        geo_location
         price{
           text
         }

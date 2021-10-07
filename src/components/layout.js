@@ -16,7 +16,9 @@ const GlobalStyle = createGlobalStyle`
 
 const Wrapper = styled.main`
 
-  margin: 120px 0px 0 10px;
+  margin: ;
+  margin: ${props => (props.margins ? props.margins : "120px 0 0 ")};
+
   maxWidth: 960px;
   overflow: hidden;
   
@@ -37,7 +39,7 @@ const Copyright = styled.p`
 `;
 
 
-const Layout = ({ children, background }) => {
+const Layout = ({ children, background, margins }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -53,7 +55,7 @@ const Layout = ({ children, background }) => {
     <ThemeProvider theme={theme}>
       <GlobalStyle background={background}/>
       <Header siteTitle={data.site.siteMetadata.title}/>
-        <Wrapper >{children}</Wrapper>
+        <Wrapper margins={margins} >{children}</Wrapper>
         <Copyright>© {new Date().getFullYear()}, PoliticApp</Copyright>
       </ThemeProvider>
     </>
