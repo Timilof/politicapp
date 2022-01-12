@@ -6,14 +6,15 @@ import Maintext from "../components/Maintext";
 import styled from "styled-components";
 
 const StyledHead = styled(Heading1)`
-    color: ${(({ theme }) => theme.red)};
-    max-width: 90%;
-    font-style: italic;
+    color: ${(({ theme }) => theme.black)};
+        max-width: 90%;
+        font-style: italic;
+        margin: 10px;
     `;
     
     const MetaData = styled(Maintext)`
-    color: ${(({ theme }) => theme.blue)};
-    font-weight: 100;
+    // color: ${(({ theme }) => theme.blue)};
+    // font-weight: 100;
     margin: 0;
     `;
     
@@ -22,7 +23,7 @@ const StyledHead = styled(Heading1)`
     flex-direction: row;
     wrap: nowrap;
     justify-content: space-between;
-    margin: 0 6px 0 0;
+    margin: 0 10px;
     `;
     
     const StyledLink = styled(Link)`
@@ -31,19 +32,24 @@ const StyledHead = styled(Heading1)`
     border-bottom: 1px solid #eee;
     display: block;
     color: ${(({ theme }) => theme.blue)};
-`;
+    `;
 
-const EventLink = ({ title, event_type, date, location, price, time, cover }) => {
+    const EventType = styled(Maintext)`
+        margin: 0 10px 20px;
+        text-transform: capitalize;
+    `;
+
+const EventLink = ({ title, event_type, date, location, price, time, cover, to }) => {
 
     return (
-        <StyledLink to="/">
+        <StyledLink to={to}>
             <StyledHead text={title}/>
             <img src={cover} alt={`cover of ${title}`}/>
             <MetaWrapper>
                 <MetaData text={date+` `+time} />
                 <MetaData text={`@`+location}/>
             </MetaWrapper>
-            <Maintext text={event_type} />
+            <EventType text={event_type} />
         </StyledLink>
     );
 };

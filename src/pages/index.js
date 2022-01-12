@@ -17,20 +17,17 @@ const OnlyMobile = styled(Link)`
 `;
 
 const IndexPage = ({ data }) => {
-
-  const events = data.allPrismicEvent.nodes
-  console.log(events)
-
-  const eventList = events.map((event, i)=>
+  const eventList = data.allPrismicEvent.edges.map((event, i)=>
     <EventLink  
           key={i}
-          title={event.data.title.text}
-          event_type={event.data.event_type}
-          date={event.data.date}
-          location={event.data.geo_location}
-          price={event.data.price.text}
-          time={event.data.time.text}
-          cover={event.data.cover.url}
+          title={event.node.data.title.text}
+          event_type={event.node.data.event_type}
+          date={event.node.data.date}
+          location={event.node.data.geo_location}
+          price={event.node.data.price.text}
+          time={event.node.data.time.text}
+          cover={event.node.data.cover.url}
+          to={event.node.uid}
         />
     );
 
@@ -49,7 +46,10 @@ export default IndexPage
 
 export const HOMEPAGE_QUERY = graphql`{
   allPrismicEvent{
-    nodes{
+    edges{
+      node{
+        id
+        uid
       data{
         title{
           text
@@ -68,6 +68,7 @@ export const HOMEPAGE_QUERY = graphql`{
         event_type
       }
     }
+  }
   }
 }
 `

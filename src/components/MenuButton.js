@@ -19,14 +19,14 @@ const Switch = styled.button`
       }
 `;
 
-const MenuButton = ({setMenuOpen, menuOpen}) => {
+const MenuButton = ({setMenuOpen, menuOpen, className}) => {
 
     function switchMenu(){
         setMenuOpen(!menuOpen)
     }
 
     return (
-        <Switch menuOpen={menuOpen} onClick={e => switchMenu()}>
+        <Switch className={className} menuOpen={menuOpen} onClick={e => switchMenu()}>
             {menuOpen ? 'Close' : 'Menu'}
         </Switch>
     );

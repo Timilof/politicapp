@@ -65,7 +65,7 @@ const ToMap = styled(Link)`
     margin: 0 80px 0 auto;
 `;
 
-const Header = ({ siteTitle }) => {
+const Header = ({ noHead }) => {
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -92,10 +92,14 @@ const Header = ({ siteTitle }) => {
 
   return(
     <StyledHeader>
-      <LogoLink to="/">
-          <Logo menuOpen={menuOpen} src={LogoSrc} alt="Go to politicapp home"/>
-      </LogoLink>
-      <ToMap to="/map">Map</ToMap>
+      {noHead == undefined && 
+        <>
+            <LogoLink to="/">
+                <Logo menuOpen={menuOpen} src={LogoSrc} alt="Go to politicapp home"/>
+            </LogoLink>
+            <ToMap to="/map">Map</ToMap>
+        </>
+      }
       <MenuButton menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
       <MobileMenu data={cleanedData} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <DesktopMenu data={cleanedData} />

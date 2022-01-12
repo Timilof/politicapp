@@ -11,7 +11,6 @@ import TLBWrapper from "../components/TLBWrapper";
 const about = ({ data }) => {
 
     const aboutData = data.prismicAbout.data
-    console.log(about)
 
     return (
         <>

@@ -7,7 +7,7 @@ import Heading1 from "../components/Heading1";
 const Linkage = styled.a`
     color: #000;
     text-decoration: underline;
-    font-size: 16px;
+    font-size: 14px;
     display: inline;
     @media (${({ theme }) => theme.respondTo.tablet}) {
         font-size: 20px;
@@ -19,7 +19,7 @@ const StyledText = styled(MainText)`
     margin: 0;
     padding: 0;
     display: ${props => (props.regel === "nieuwe regel" ? "block" : "inline")};
-    font-size: ${props => (props.sizing === "big" ? "21px" : "initial")};
+    font-size: ${props => (props.sizing === "big" ? "21px" : "14px")};
     font-weight: ${props => (props.sizing === "big" ? "800" : "initial")};
 `;
 

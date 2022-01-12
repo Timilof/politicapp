@@ -39,7 +39,7 @@ const Copyright = styled.p`
 `;
 
 
-const Layout = ({ children, background, margins }) => {
+const Layout = ({ children, background, margins, noHead }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -54,7 +54,7 @@ const Layout = ({ children, background, margins }) => {
     <>
     <ThemeProvider theme={theme}>
       <GlobalStyle background={background}/>
-      <Header siteTitle={data.site.siteMetadata.title}/>
+      <Header noHead={noHead}/>
         <Wrapper margins={margins} >{children}</Wrapper>
         <Copyright>© {new Date().getFullYear()}, PoliticApp</Copyright>
       </ThemeProvider>

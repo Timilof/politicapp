@@ -2,18 +2,18 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-const Head = styled.h1`
+const Head = styled.h2`
     margin: 24px 0 20px 0;
     padding: 0;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: bold;
     text-decoration: none;
     @media (${({ theme }) => theme.respondTo.tablet}) {
-        font-size: 40px;
+        font-size: 28px;
     }
 `;
 
-const Heading1 = ({ text, className }) => {
+const Heading2 = ({ text, className }) => {
     return (
         <Head className={className}>
             {text}
@@ -21,4 +21,4 @@ const Heading1 = ({ text, className }) => {
     );
 };
 
-export default Heading1;
+export default Heading2;

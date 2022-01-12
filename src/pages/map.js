@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { graphql, Link } from 'gatsby';
+import {useSpring, animated} from 'react-spring';
 
 import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
@@ -23,11 +24,60 @@ L.Icon.Default.mergeOptions({
 
 const MyMarker = styled(Marker)`
     background: lime;
+    color: lime;
+`;
+
+const Wrapper = styled(animated.div)`
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    width: 100%;
+    margin: 0;
+    z-index: 3;
+    position: fixed;
+    top: 20vh;
+    height: 150vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+}
+    
+    @media (${({ theme }) => theme.respondTo.desktop}) {
+        display: none;
+    }
+`;
+
+const Close = styled.button`
+    font-size: 30px;
+    text-decoration: none;
+    color: #000;
+    background: transparent;
+    border: none;
+    z-index: 99;
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    transform: rotate(135deg);
+    outline: ${({ theme }) => theme.blue};
+    
+    @media (${({ theme }) => theme.respondTo.tablet}) {
+       display: none;
+      }
 `;
 
 const IndexPage = ({ data }) => {
+  
+  const eventsTemporary = data.allPrismicEvent.nodes
+  const [dataOpen, setDataOpen] = useState(true);
+  const [renderEvents, setRenderEvents] = useState([]);
+  const position = [52.3676, 4.9041];
+  const hidden = useSpring({config:{duration: 200},
+    top: dataOpen ? '100vh' : '20vh'});
 
-    console.log(data.allPrismicEvent.nodes)
+    function closePopup(e){
+      setDataOpen(true)
+  }
 
     const venueLatLan = [
         {
@@ -51,19 +101,48 @@ const IndexPage = ({ data }) => {
             lan: 4.8813344694998175
         },
     ]
+    
+    function sortEventvenues(event){
+        for (let index = 0; index < venueLatLan.length; index++) {
+          const element = venueLatLan[index];
+          if(element.name == event.geo_location || event.name){
 
-    console.log(venueLatLan)
-    const [dataOpen, setDataOpen] = useState(true);
+            return {
+              ...event,
+              lat: element.lat,  
+              lan: element.lan
+            }
+          }
+        }
+    };
 
-    const position = [52.3676, 4.9041]
+    const returnVenueWithEvents = (lat) => {
+      const venue = venueLatLan.find(venueItem =>  venueItem.lat === lat);
+      setRenderEvents([activeEvents.find(event => event.geo_location === venue.name)]);
+      return venue
+    };
+
+    // render locations that have active events once double events wont render
+    let activeEvents = []
+    eventsTemporary.forEach(element => {
+      activeEvents.push(sortEventvenues(element.data))
+    });
+
     function handleEventClick(e){
-        console.log(e)
-        setDataOpen(!dataOpen)
+      // filter based on latlang and return venue name and all active events >>> display events in modal with active links
+      returnVenueWithEvents(e.target._latlng.lat)
+      setDataOpen(!dataOpen)
     }
 
-    
-
-
+    const pointers = activeEvents.map((item, i)=>
+        <MyMarker key={i} position={[item.lat, item.lan]} eventHandlers={{
+          click: (e) => {
+              handleEventClick(e)
+            },
+        }}>
+        </MyMarker>
+    );
+   
   return(
     <>
     <Layout background={`#fff`} margins={`0`}>
@@ -74,19 +153,16 @@ const IndexPage = ({ data }) => {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <ZoomControl position="bottomright" />
-            <MyMarker position={position} eventHandlers={{
-                click: (e) => {
-                    handleEventClick(e)
-                },
-            }}>
-                    {/* <p>title</p>
-                    <p>time</p>
-                    <p>venue name</p>
-                    <p>location</p>
-                    <p>Route to location</p> */}
-            </MyMarker>
+            {pointers}
         </MapContainer>
-        <EventMetaData dataOpen={dataOpen} setDataOpen={setDataOpen} />
+        <Wrapper style={hidden} dataOpen={dataOpen}>
+          <Close onClick={e=>closePopup(e)}>+</Close>
+
+          {renderEvents.length > 0 &&
+          renderEvents.map((event, i)=>
+          <EventMetaData toRender={event} setDataOpen={setDataOpen} key={i}/>)
+          }
+        </Wrapper>
     </Layout>
     </>
   );
@@ -113,6 +189,14 @@ export const MAPPAGE_QUERY = graphql`{
             text
           }
           event_type
+          brood_text {
+            text_link_of_space
+            type_link
+            style
+            context {
+              text
+            }
+          }
         }
       }
     }

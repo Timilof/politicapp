@@ -10,6 +10,7 @@ const theme = {
     red: '#E84D43',
     white:'#fff',
     green:'#2CB04C',
+    black:'#000',
   
     // Fonts
     fontSize: '1.8rem',
