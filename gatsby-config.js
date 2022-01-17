@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `PoliticApp`,
     description: `Politicapp proof of concept`,
-    author: `@gatsbyjs`,
+    author: `Timilof/@gatsbyjs`,
   },
   plugins: [
     "@babel/plugin-proposal-logical-assignment-operators",
