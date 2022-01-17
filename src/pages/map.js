@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import {useSpring, animated} from 'react-spring';
 
-import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, ZoomControl } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import L from "leaflet";
 
@@ -72,6 +72,7 @@ const IndexPage = ({ data }) => {
   const [dataOpen, setDataOpen] = useState(true);
   const [renderEvents, setRenderEvents] = useState([]);
   const position = [52.3676, 4.9041];
+  let activeEvents = []
   const hidden = useSpring({config:{duration: 200},
     top: dataOpen ? '100vh' : '20vh'});
 
@@ -105,7 +106,7 @@ const IndexPage = ({ data }) => {
     function sortEventvenues(event){
         for (let index = 0; index < venueLatLan.length; index++) {
           const element = venueLatLan[index];
-          if(element.name == event.geo_location || event.name){
+          if(element.name === event.geo_location || event.name){
 
             return {
               ...event,
@@ -123,12 +124,9 @@ const IndexPage = ({ data }) => {
     };
 
     // render locations that have active events once double events wont render
-    useEffect(() => {
-      let activeEvents = []
       eventsTemporary.forEach(element => {
         activeEvents.push(sortEventvenues(element.data))
       });
-    },[])
 
     function handleEventClick(e){
       // filter based on latlang and return venue name and all active events >>> display events in modal with active links
@@ -145,7 +143,7 @@ const IndexPage = ({ data }) => {
         </MyMarker>
     );
    
-  return(
+  return (
     <>
     <Layout background={`#fff`} margins={`0`}>
         <SEO title="PoliticApp home" />

@@ -1,20 +1,11 @@
 import React from "react"
 
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import styled from "styled-components";
 import EventLink from "../components/EventLink";
-
-const OnlyMobile = styled(Link)`
-    font-size: 16px;
-    color: #000;
-    @media (${({ theme }) => theme.respondTo.tablet}) {
-      display: none;
-    }
-`;
 
 const IndexPage = ({ data }) => {
   const eventList = data.allPrismicEvent.edges.map((event, i)=>

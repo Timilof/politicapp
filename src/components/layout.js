@@ -1,6 +1,5 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import theme from '../styling/theme';
 
@@ -40,15 +39,6 @@ const Copyright = styled.p`
 
 
 const Layout = ({ children, background, margins, noHead }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
 
   return (
     <>

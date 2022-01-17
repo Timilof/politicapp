@@ -29,7 +29,7 @@ const Spacer = styled.div`
 `;
 
 const TextLinkBlock = ({item}) => {
-    if (item.text_link_of_space === "" || item.text_link_of_space == undefined) {
+    if (item.text_link_of_space === "" || item.text_link_of_space === undefined) {
         return <></>;
     }
 

@@ -1,6 +1,6 @@
 import React from "react"
 
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -9,7 +9,6 @@ import Heading2 from "../components/Heading2";
 import Maintext from "../components/Maintext";
 import TLBWrapper from "../components/TLBWrapper";
 import ActionButton  from "../components/ActionButton";
-import ticket from "../images/ticket.svg";
 
 import styled from "styled-components";
 

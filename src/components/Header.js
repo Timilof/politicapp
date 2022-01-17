@@ -92,7 +92,7 @@ const Header = ({ noHead }) => {
 
   return(
     <StyledHeader>
-      {noHead == undefined && 
+      {noHead === undefined && 
         <>
             <LogoLink to="/">
                 <Logo menuOpen={menuOpen} src={LogoSrc} alt="Go to politicapp home"/>
