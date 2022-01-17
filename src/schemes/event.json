@@ -1,141 +1,115 @@
 {
-  "Main": {
-    "uid": {
-      "type": "UID",
-      "config": {
-        "label": "uid"
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "uid"
       }
     },
-    "cover": {
-      "type": "Image",
-      "config": {
-        "constraint": {},
-        "thumbnails": [],
-        "label": "cover"
+    "cover" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "cover"
       }
     },
-    "title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1",
-        "label": "title"
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "title"
       }
     },
-    "geo_location": {
-      "type": "Select",
-      "config": {
-        "options": [
-          "pakhuis de zwijger",
-          "de balie",
-          "vondelbunker",
-          "spui 25",
-          "tolhuistuin",
-          "other"
-        ],
-        "label": "geo_location",
-        "placeholder": "select geo location"
+    "geo_location" : {
+      "type" : "Select",
+      "config" : {
+        "options" : [ "pakhuis de zwijger", "de balie", "vondelbunker", "spui 25", "tolhuistuin", "other" ],
+        "label" : "geo_location",
+        "placeholder" : "select geo location"
       }
     },
-    "date": {
-      "type": "Date",
-      "config": {
-        "label": "date"
+    "date" : {
+      "type" : "Date",
+      "config" : {
+        "label" : "date"
       }
     },
-    "time": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph",
-        "label": "time"
+    "time" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph",
+        "label" : "time"
       }
     },
-    "price": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph",
-        "label": "price"
+    "price" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph",
+        "label" : "price"
       }
     },
-    "event_type": {
-      "type": "Select",
-      "config": {
-        "options": [
-          "discussion",
-          "lecture",
-          "film"
-        ],
-        "default_value": "discussion",
-        "label": "event_type"
+    "event_type" : {
+      "type" : "Select",
+      "config" : {
+        "options" : [ "discussion", "lecture", "film" ],
+        "default_value" : "discussion",
+        "label" : "event_type"
       }
     },
-    "brood_text": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "style": {
-            "type": "Select",
-            "config": {
-              "options": [
-                "in zelfde regel",
-                "nieuwe regel"
-              ],
-              "default_value": "in zelfde regel",
-              "label": "style"
+    "brood_text" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "style" : {
+            "type" : "Select",
+            "config" : {
+              "options" : [ "in zelfde regel", "nieuwe regel" ],
+              "default_value" : "in zelfde regel",
+              "label" : "style"
             }
           },
-          "text_link_of_space": {
-            "type": "Select",
-            "config": {
-              "options": [
-                "text",
-                "link",
-                "space"
-              ],
-              "default_value": "text",
-              "label": "text link of space"
+          "text_link_of_space" : {
+            "type" : "Select",
+            "config" : {
+              "options" : [ "text", "link", "space" ],
+              "default_value" : "text",
+              "label" : "text link of space"
             }
           },
-          "context": {
-            "type": "StructuredText",
-            "config": {
-              "multi": "paragraph",
-              "label": "context",
-              "placeholder": "hier alle content"
+          "context" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph",
+              "label" : "context",
+              "placeholder" : "hier alle content"
             }
           },
-          "type_link": {
-            "type": "Select",
-            "config": {
-              "options": [
-                "www.",
-                "mailto:",
-                "tel:",
-                "/"
-              ],
-              "default_value": "www.",
-              "label": "type_link"
+          "type_link" : {
+            "type" : "Select",
+            "config" : {
+              "options" : [ "www.", "mailto:", "tel:", "/" ],
+              "default_value" : "www.",
+              "label" : "type_link"
             }
           },
-          "font_grootte": {
-            "type": "Select",
-            "config": {
-              "options": [
-                "small",
-                "big"
-              ],
-              "default_value": "small",
-              "label": "font_grootte"
+          "font_grootte" : {
+            "type" : "Select",
+            "config" : {
+              "options" : [ "small", "big" ],
+              "default_value" : "small",
+              "label" : "font_grootte"
             }
           },
-          "link_adress": {
-            "type": "StructuredText",
-            "config": {
-              "multi": "paragraph",
-              "label": "link_adress"
+          "link_adress" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph",
+              "label" : "link_adress"
             }
           }
         },
-        "label": "brood_text"
+        "label" : "brood_text"
       }
     }
   }

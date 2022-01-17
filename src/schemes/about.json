@@ -1,56 +1,56 @@
 {
-    "Main" : {
-      "uid" : {
-        "type" : "UID",
-        "config" : {
-          "label" : "uid"
-        }
-      },
-      "banner_text" : {
-        "type" : "Group",
-        "config" : {
-          "fields" : {
-            "style" : {
-              "type" : "Select",
-              "config" : {
-                "options" : [ "nieuwe regel", "in zelfde regel" ],
-                "label" : "style"
-              }
-            },
-            "font_grootte" : {
-              "type" : "Select",
-              "config" : {
-                "options" : [ "small", "big" ],
-                "default_value" : "small",
-                "label" : "font_grootte"
-              }
-            },
-            "text_link_of_space" : {
-              "type" : "Select",
-              "config" : {
-                "options" : [ "text", "header", "link", "space" ],
-                "default_value" : "text",
-                "label" : "text link of space"
-              }
-            },
-            "context" : {
-              "type" : "StructuredText",
-              "config" : {
-                "multi" : "paragraph",
-                "label" : "context",
-                "placeholder" : "hier alle content"
-              }
-            },
-            "type_link" : {
-              "type" : "Select",
-              "config" : {
-                "options" : [ "mailto:", "tel:", "/", "www." ],
-                "label" : "type_link"
-              }
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "uid"
+      }
+    },
+    "banner_text" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "style" : {
+            "type" : "Select",
+            "config" : {
+              "options" : [ "nieuwe regel", "in zelfde regel" ],
+              "label" : "style"
             }
           },
-          "label" : "banner text"
-        }
+          "font_grootte" : {
+            "type" : "Select",
+            "config" : {
+              "options" : [ "small", "big" ],
+              "default_value" : "small",
+              "label" : "font_grootte"
+            }
+          },
+          "text_link_of_space" : {
+            "type" : "Select",
+            "config" : {
+              "options" : [ "text", "header", "link", "space" ],
+              "default_value" : "text",
+              "label" : "text link of space"
+            }
+          },
+          "context" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph",
+              "label" : "context",
+              "placeholder" : "hier alle content"
+            }
+          },
+          "type_link" : {
+            "type" : "Select",
+            "config" : {
+              "options" : [ "mailto:", "tel:", "/", "www." ],
+              "label" : "type_link"
+            }
+          }
+        },
+        "label" : "banner text"
       }
     }
   }
+}
