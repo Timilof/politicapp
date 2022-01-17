@@ -147,7 +147,7 @@ const IndexPage = ({ data }) => {
     <>
     <Layout background={`#fff`} margins={`0`}>
         <SEO title="PoliticApp home" />
-        <MapContainer center={position} zoom={13} scrollWheelZoom={false} zoomControl={false} tap={false}>
+        {/* <MapContainer center={position} zoom={13} scrollWheelZoom={false} zoomControl={false} tap={false}>
             <TileLayer
                 // TODO // attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -162,7 +162,7 @@ const IndexPage = ({ data }) => {
           renderEvents.map((event, i)=>
           <EventMetaData toRender={event} setDataOpen={setDataOpen} key={i}/>)
           }
-        </Wrapper>
+        </Wrapper> */}
     </Layout>
     </>
   );
