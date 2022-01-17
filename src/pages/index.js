@@ -35,7 +35,6 @@ const IndexPage = ({ data }) => {
     <>
     <Layout background={`#fff`}>
       <SEO title="Discover political events in the city" />
-     
       {eventList}
     </Layout>
     </>

@@ -21,12 +21,11 @@ const Wrapper = styled(animated.div)`
 `;
 
 
-const MobileMenu = ({menuOpen, setMenuOpen, data}) => {
-
+const MobileMenu = ({menuOpen, data}) => {
     const hidden = useSpring({config:{duration: 200},
         transform: menuOpen ? 'translatex(0)' : 'translatex(120vw)'})
 
-        const listItems = data.map((linkData, i)=>
+        const listItems = data.map((linkData, i) =>
             <MenuItem linkData={linkData} key={i}/>
         );
     return (

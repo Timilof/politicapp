@@ -123,10 +123,12 @@ const IndexPage = ({ data }) => {
     };
 
     // render locations that have active events once double events wont render
-    let activeEvents = []
-    eventsTemporary.forEach(element => {
-      activeEvents.push(sortEventvenues(element.data))
-    });
+    useEffect(() => {
+      let activeEvents = []
+      eventsTemporary.forEach(element => {
+        activeEvents.push(sortEventvenues(element.data))
+      });
+    },[])
 
     function handleEventClick(e){
       // filter based on latlang and return venue name and all active events >>> display events in modal with active links
@@ -138,7 +140,7 @@ const IndexPage = ({ data }) => {
         <MyMarker key={i} position={[item.lat, item.lan]} eventHandlers={{
           click: (e) => {
               handleEventClick(e)
-            },
+            }
         }}>
         </MyMarker>
     );

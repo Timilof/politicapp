@@ -52,12 +52,10 @@ const StyledHeading2 = styled(Heading2)`
 
 const event = ({ data }) => {
   data = data.prismicEvent.data
-  console.log(data);
 
   return(
     <>
     <Layout background={`#fff`} margins={`0 0 60px`} noHead={"no head :-("}>
-        {/* todo */}
       <SEO title={data.title.text} />
       <img src={data.cover.url ? data.cover.url : "sadness"} alt={`cover for ${data.title.text}`}/>
       <StyledHeading2 text={data.title.text}/>
@@ -65,9 +63,9 @@ const event = ({ data }) => {
       <MetaWrapper>
           <MetaData text={data.date+` `+data.time.text} />
       </MetaWrapper>
-
       <MarginWrapper content={data.brood_text}/>
       <LinkWrapper>
+      {/* todo */}
         <ActionButton color={"#2CB04C"} href={"#get_ticket"} text={"Get tickets"} />
         <ActionButton href={"#calendar"} text={"Add to calendar"} />
       </LinkWrapper>
