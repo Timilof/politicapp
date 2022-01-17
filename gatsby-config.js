@@ -18,7 +18,6 @@ module.exports = {
       resolve: 'gatsby-source-prismic',
       options: {
         repositoryName: 'politicapp1', 
-        accessToken: 'MC5ZU3p0ZHhJQUFDTUFhS3FN.77-9Pe-_ve-_vSbvv70O77-9O31fEO-_ve-_ve-_ve-_vXlNBu-_ve-_ve-_ve-_ve-_ve-_ve-_vVLvv73vv71d77-977-9',
         schemas: {
           menu: require("./src/schemes/menu.json"),
           home: require("./src/schemes/home.json"),
