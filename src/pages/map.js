@@ -180,6 +180,8 @@ const IndexPage = ({ data }) => {
     //     }}>
     //     </MyMarker>
     // );
+
+  return null;
    
   return ( 
       <Layout background={`#fff`} margins={`0`}>
