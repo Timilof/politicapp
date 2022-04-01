@@ -128,58 +128,58 @@ const IndexPage = ({ data }) => {
         },
     ];
     
-    function sortEventvenues(event){
-      console.log(event)
-        for (let index = 0; index < venueLatLan.length; index++) {
-          const element = venueLatLan[index];
-          if (element.name === (event.geo_location !== null ? event.geo_location.toLowerCase() : 'spui 25') || event.name){
-            return {
-              ...event,
-              lat: element.lat,  
-              lan: element.lan
-            }
-          }
-          else {
-              // return a default that doesnt have a location or custom lat/long
-              return {
-                ...event,
-                lat: 52.3779926165163,
-                lan: 4.8813344694998175,
-              }
-          }
-        }
-    };
+    // function sortEventvenues(event){
+    //   console.log(event)
+    //     for (let index = 0; index < venueLatLan.length; index++) {
+    //       const element = venueLatLan[index];
+    //       if (element.name === (event.geo_location !== null ? event.geo_location.toLowerCase() : 'spui 25') || event.name){
+    //         return {
+    //           ...event,
+    //           lat: element.lat,  
+    //           lan: element.lan
+    //         }
+    //       }
+    //       else {
+    //           // return a default that doesnt have a location or custom lat/long
+    //           return {
+    //             ...event,
+    //             lat: 52.3779926165163,
+    //             lan: 4.8813344694998175,
+    //           }
+    //       }
+    //     }
+    // };
 
-    const returnVenueWithEvents = (lat) => {
-        const venue = venueLatLan.find(venueItem =>  venueItem.lat === lat);
-        setRenderEvents([activeEvents.find(event => event.geo_location === venue.name)]);
-        return venue
-    };
+    // const returnVenueWithEvents = (lat) => {
+    //     const venue = venueLatLan.find(venueItem =>  venueItem.lat === lat);
+    //     setRenderEvents([activeEvents.find(event => event.geo_location === venue.name)]);
+    //     return venue
+    // };
 
-    // render locations that have active events once double events wont render
-    useEffect(()=>{
-      if (eventsTemporary.length > 0) {
-        eventsTemporary.forEach(element => {
-          // console.log(element.data.geo_location, element.data.cover)
-          activeEvents.push(sortEventvenues(element.node.data))
-        })
-      }
-    },[eventsTemporary])
+    // // render locations that have active events once double events wont render
+    // useEffect(()=>{
+    //   if (eventsTemporary.length > 0) {
+    //     eventsTemporary.forEach(element => {
+    //       // console.log(element.data.geo_location, element.data.cover)
+    //       activeEvents.push(sortEventvenues(element.node.data))
+    //     })
+    //   }
+    // },[eventsTemporary])
 
-    function handleEventClick(e){
-      // filter based on latlang and return venue name and all active events >>> display events in modal with active links
-      returnVenueWithEvents(e.target._latlng.lat)
-      setDataOpen(!dataOpen);
-    }
+    // function handleEventClick(e){
+    //   // filter based on latlang and return venue name and all active events >>> display events in modal with active links
+    //   returnVenueWithEvents(e.target._latlng.lat)
+    //   setDataOpen(!dataOpen);
+    // }
 
-    const pointers = activeEvents.map((item, i)=>
-        <MyMarker key={i} position={[item.lat || 0, item.lan ?? item.lan]} eventHandlers={{
-          click: (e) => {
-              handleEventClick(e)
-            }
-        }}>
-        </MyMarker>
-    );
+    // const pointers = activeEvents.map((item, i)=>
+    //     <MyMarker key={i} position={[item.lat || 0, item.lan ?? item.lan]} eventHandlers={{
+    //       click: (e) => {
+    //           handleEventClick(e)
+    //         }
+    //     }}>
+    //     </MyMarker>
+    // );
    
   return ( 
       <Layout background={`#fff`} margins={`0`}>
@@ -190,9 +190,9 @@ const IndexPage = ({ data }) => {
                   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
               <ZoomControl position="bottomright" />
-              {pointers}
+              {/* {pointers} */}
           </MapContainer>
-          {typeof window !== undefined &&
+          {/* {typeof window !== undefined &&
             <Wrapper style={hidden}>
               <Close onClick={e=>closePopup(e)}>+</Close>
 
@@ -201,7 +201,7 @@ const IndexPage = ({ data }) => {
               <EventMetaData toRender={event} key={i}/>)
               }
             </Wrapper>
-          }
+          } */}
       </Layout>
   );
 }
