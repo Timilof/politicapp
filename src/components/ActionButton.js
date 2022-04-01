@@ -14,7 +14,7 @@ const StyledLink = styled.a`
 `;
 const ActionButton = ({text, href, color, className}) => {
     return (
-        <StyledLink href={href} color={color} className={className}>
+        <StyledLink target="_blank" href={href} color={color} className={className}>
             {text}
         </StyledLink>
     );

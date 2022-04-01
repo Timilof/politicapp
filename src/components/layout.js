@@ -14,9 +14,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Wrapper = styled.main`
-
-  margin: ;
-  margin: ${props => (props.margins ? props.margins : "120px 0 0 ")};
+  margin: ${props => (props.margins ? props.margins : "80px 0 0 ")};
 
   maxWidth: 960px;
   overflow: hidden;
@@ -38,13 +36,13 @@ const Copyright = styled.p`
 `;
 
 
-const Layout = ({ children, background, margins, noHead }) => {
+const Layout = ({ children, background, margins, noHead, backButton }) => {
 
   return (
     <>
     <ThemeProvider theme={theme}>
       <GlobalStyle background={background}/>
-      <Header noHead={noHead}/>
+      <Header noHead={noHead} backButton={backButton} />
         <Wrapper margins={margins} >{children}</Wrapper>
         <Copyright>© {new Date().getFullYear()}, PoliticApp</Copyright>
       </ThemeProvider>

@@ -4,6 +4,7 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 
 import styled from 'styled-components';
 
+import ArrowBack from "../images/arrowBack.svg";
 import LogoSrc from "../images/politicapp_logo.svg"
 import MobileMenu from "../components/MobileMenu";
 import MenuButton from "../components/MenuButton";
@@ -49,6 +50,12 @@ const LogoLink = styled(Link)`
     }
 `;
 
+const Back = styled.img`
+  position: fixed;
+  top: 30px;
+  width: 20px;
+`;
+
 const Logo = styled.img`
     height: 26px;
     margin: 0;
@@ -59,13 +66,16 @@ const Logo = styled.img`
 `;
 
 const ToMap = styled(Link)`
-    color: #000;
-    text-decoration: underline;
-    padding: 20px;
-    margin: 0 80px 0 auto;
+  color: #fff;
+  text-decoration: underline;
+  padding: 2px 16px 7px;
+  margin: 20px 84px 0px auto;
+  font-size: 20px;
+  border-radius: 16px;
+  background-color: #000;
 `;
 
-const Header = ({ noHead }) => {
+const Header = ({ noHead, backButton }) => {
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -92,14 +102,15 @@ const Header = ({ noHead }) => {
 
   return(
     <StyledHeader>
-      {noHead === undefined && 
-        <>
-            <LogoLink to="/">
-                <Logo menuOpen={menuOpen} src={LogoSrc} alt="Go to politicapp home"/>
-            </LogoLink>
-            <ToMap to="/map">Map</ToMap>
-        </>
-      }
+      <LogoLink to="/">
+        {!noHead && 
+          <Logo menuOpen={menuOpen} src={LogoSrc} alt="Go to politicapp home"/>
+        }
+        {backButton && 
+          <Back src={ArrowBack} alt="arrow back" />
+        }
+      </LogoLink>
+      <ToMap to="/map">Map</ToMap>
       <MenuButton menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
       <MobileMenu data={cleanedData} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <DesktopMenu data={cleanedData} />

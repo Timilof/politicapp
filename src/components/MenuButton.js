@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Switch = styled.button`
-    font-size: 22px;
+    font-size: 20px;
     text-decoration: underline;
     color: #000;
     color: ${props => (props.menuOpen ? "#fff" : "#000")};

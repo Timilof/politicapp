@@ -29,17 +29,17 @@ const Spacer = styled.div`
 `;
 
 const TextLinkBlock = ({item}) => {
-    if (item.text_link_of_space === "" || item.text_link_of_space === undefined) {
+    if (item.text_hyperlink_or_space === "" || item.text_hyperlink_or_space === undefined) {
         return <></>;
     }
 
     let element;
-    if(item.text_link_of_space === "text"){
-        element = <StyledText sizing={item.font_grootte} regel={item.style} text={`${item.context.text} `} />
-    }else if(item.text_link_of_space === "header"){
-        element = <Heading1 text={`${item.context.text} `} />
-    }else if(item.text_link_of_space === "link"){
-        element = <Linkage regel={item.style} href={`${item.type_link}${item.context.text}`}>{item.context.text}</Linkage>
+    if(item.text_hyperlink_or_space === "text"){
+        element = <StyledText sizing={item.font_size} regel={item.style} text={`${item.content.text} `} />
+    }else if(item.text_hyperlink_or_space === "header"){
+        element = <Heading1 text={`${item.content.text} `} />
+    }else if(item.text_hyperlink_or_space === "link"){
+        element = <Linkage regel={item.style} href={`${item.type_link}${item.content.text}`}>{item.content.text}</Linkage>
     }else{
         element = <Spacer/>
     }

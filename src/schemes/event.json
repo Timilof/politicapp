@@ -29,10 +29,30 @@
         "placeholder" : "select geo location"
       }
     },
-    "date" : {
+    "venue_location" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph",
+        "label" : "venue location"
+      }
+    },
+    "is_date_range" : {
+      "type" : "Boolean",
+      "config" : {
+        "default_value" : false,
+        "label" : "is date range"
+      }
+    },
+    "start_date" : {
       "type" : "Date",
       "config" : {
-        "label" : "date"
+        "label" : "start date"
+      }
+    },
+    "end_date" : {
+      "type" : "Date",
+      "config" : {
+        "label" : "end date"
       }
     },
     "time" : {
@@ -43,62 +63,47 @@
       }
     },
     "price" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph",
-        "label" : "price"
-      }
-    },
-    "event_type" : {
-      "type" : "Select",
-      "config" : {
-        "options" : [ "discussion", "lecture", "film" ],
-        "default_value" : "discussion",
-        "label" : "event_type"
-      }
-    },
-    "brood_text" : {
       "type" : "Group",
       "config" : {
         "fields" : {
           "style" : {
             "type" : "Select",
             "config" : {
-              "options" : [ "in zelfde regel", "nieuwe regel" ],
-              "default_value" : "in zelfde regel",
+              "options" : [ "same line", "new line" ],
+              "default_value" : "same line",
               "label" : "style"
             }
           },
-          "text_link_of_space" : {
+          "text_hyperlink_or_space" : {
             "type" : "Select",
             "config" : {
-              "options" : [ "text", "link", "space" ],
+              "options" : [ "text", "hyperlink", "space" ],
               "default_value" : "text",
-              "label" : "text link of space"
+              "label" : "text hyperlink or space"
             }
           },
-          "context" : {
+          "content" : {
             "type" : "StructuredText",
             "config" : {
               "multi" : "paragraph",
-              "label" : "context",
-              "placeholder" : "hier alle content"
+              "label" : "content",
+              "placeholder" : "paste the visible text here"
             }
           },
-          "type_link" : {
+          "type_of_link" : {
             "type" : "Select",
             "config" : {
               "options" : [ "www.", "mailto:", "tel:", "/" ],
               "default_value" : "www.",
-              "label" : "type_link"
+              "label" : "type_of_link"
             }
           },
-          "font_grootte" : {
+          "font_size" : {
             "type" : "Select",
             "config" : {
               "options" : [ "small", "big" ],
               "default_value" : "small",
-              "label" : "font_grootte"
+              "label" : "font_size"
             }
           },
           "link_adress" : {
@@ -109,7 +114,98 @@
             }
           }
         },
-        "label" : "brood_text"
+        "label" : "price"
+      }
+    },
+    "language" : {
+      "type" : "Select",
+      "config" : {
+        "options" : [ "NL", "ENG", "ENG & NL", "ESP" ],
+        "default_value" : "NL",
+        "label" : "language"
+      }
+    },
+    "streaming_possible" : {
+      "type" : "Boolean",
+      "config" : {
+        "default_value" : false,
+        "label" : "streaming possible"
+      }
+    },
+    "wheelchair_accessible" : {
+      "type" : "Boolean",
+      "config" : {
+        "default_value" : false,
+        "label" : "wheelchair accessible"
+      }
+    },
+    "event_type" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph",
+        "label" : "event_type"
+      }
+    },
+    "payment_link" : {
+      "type" : "Link",
+      "config" : {
+        "label" : "payment_link",
+        "select" : null
+      }
+    },
+    "about_event" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "style" : {
+            "type" : "Select",
+            "config" : {
+              "options" : [ "same line", "new line" ],
+              "default_value" : "same line",
+              "label" : "style"
+            }
+          },
+          "text_hyperlink_or_space" : {
+            "type" : "Select",
+            "config" : {
+              "options" : [ "text", "hyperlink", "space" ],
+              "default_value" : "text",
+              "label" : "text hyperlink or space"
+            }
+          },
+          "content" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph",
+              "label" : "content",
+              "placeholder" : "paste the visible text here"
+            }
+          },
+          "type_of_link" : {
+            "type" : "Select",
+            "config" : {
+              "options" : [ "www.", "mailto:", "tel:", "/" ],
+              "default_value" : "www.",
+              "label" : "type_of_link"
+            }
+          },
+          "font_size" : {
+            "type" : "Select",
+            "config" : {
+              "options" : [ "small", "big" ],
+              "default_value" : "small",
+              "label" : "font_size"
+            }
+          },
+          "link_adress" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph",
+              "label" : "link_adress"
+            }
+          }
+        },
+        "label" : "about_event"
       }
     }
   }

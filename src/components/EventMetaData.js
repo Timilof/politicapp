@@ -60,6 +60,7 @@ const ExternalLink = styled.a`
 `;
 
 const EventMetaData = ({ toRender }) => {
+    if (!toRender) return null;
 
     return (
         <Slider>

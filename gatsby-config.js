@@ -3,10 +3,11 @@ module.exports = {
     title: `PoliticApp`,
     description: `Politicapp proof of concept`,
     author: `Timilof/@gatsbyjs`,
+    siteUrl: `https://www.politicapp.net/`,
   },
   plugins: [
-    "@babel/plugin-proposal-logical-assignment-operators",
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -38,23 +39,19 @@ module.exports = {
         display: 'swap'
       }
     },
+    `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
-    'gatsby-plugin-styled-components',
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
+        name: `Politicapp Amsterdam`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#fff`,
-        theme_color: `#663399`,
+        background_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/politicapp_p.png`, 
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 }
