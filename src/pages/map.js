@@ -10,6 +10,7 @@ import {useSpring, animated} from 'react-spring';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import EventMetaData from "../components/EventMetaData";
+import Maintext from '../components/Maintext';
 
 import styled from "styled-components";
 
@@ -23,6 +24,22 @@ import styled from "styled-components";
 
 const key = "pk.eyJ1IjoidGltb3RoeWlzYXN0dWRlbnQiLCJhIjoiY2t6c2czNnFrNGJscTJ5bnJmZnNja2tzdiJ9.HIfP7O-M3q4fDUvFc49nag";
 
+const CenterNotice = styled.div`
+  margin: auto;
+  height: 90vh;
+  background: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StyledNotice = styled(Maintext)`
+  border: 1px solid #eee;
+  background-color: ${(({ theme }) => theme.blue)};
+  border-radius: 8px;
+  padding: 4px 10px;
+  color: ${(({ theme }) => theme.white)};
+`;
 
 // const MyMarker = styled(Marker)`
 //     background: lime;
@@ -184,6 +201,9 @@ const mapPage = () => {
   return (
         <Layout background={`#fff`} margins={`0`}>
           <SEO title="PoliticApp home" />
+          <CenterNotice>
+            <StyledNotice text="Coming very soon!!" />
+          </CenterNotice>
         </Layout>
   );
    
