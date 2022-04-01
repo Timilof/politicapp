@@ -24,12 +24,12 @@ import styled from "styled-components";
 const key = "pk.eyJ1IjoidGltb3RoeWlzYXN0dWRlbnQiLCJhIjoiY2t6c2czNnFrNGJscTJ5bnJmZnNja2tzdiJ9.HIfP7O-M3q4fDUvFc49nag";
 
 
-const MyMarker = styled(Marker)`
-    background: lime;
-    color: lime;
-    width: 20px;
-    height: 20px;
-`;
+// const MyMarker = styled(Marker)`
+//     background: lime;
+//     color: lime;
+//     width: 20px;
+//     height: 20px;
+// `;
 
 // const Wrapper = styled(animated.div)`
 //     display: flex;
@@ -52,23 +52,23 @@ const MyMarker = styled(Marker)`
 // //     }
 // // `;
 
-const Close = styled.button`
-    font-size: 30px;
-    text-decoration: none;
-    color: #000;
-    background: transparent;
-    border: none;
-    z-index: 99;
-    position: absolute;
-    top: 10px;
-    right: 16px;
-    transform: rotate(135deg);
-    outline: ${({ theme }) => theme.blue};
+// const Close = styled.button`
+//     font-size: 30px;
+//     text-decoration: none;
+//     color: #000;
+//     background: transparent;
+//     border: none;
+//     z-index: 99;
+//     position: absolute;
+//     top: 10px;
+//     right: 16px;
+//     transform: rotate(135deg);
+//     outline: ${({ theme }) => theme.blue};
     
-    @media (${({ theme }) => theme.respondTo.tablet}) {
-       display: none;
-      }
-`;
+//     @media (${({ theme }) => theme.respondTo.tablet}) {
+//        display: none;
+//       }
+// `;
 
 const mapPage = () => {
   
@@ -181,7 +181,11 @@ const mapPage = () => {
     //     </MyMarker>
     // );
 
-  return null;
+  return (
+        <Layout background={`#fff`} margins={`0`}>
+          <SEO title="PoliticApp home" />
+        </Layout>
+  );
    
   // return ( 
   //     <Layout background={`#fff`} margins={`0`}>
