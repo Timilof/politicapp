@@ -69,7 +69,7 @@ const ToMap = styled(Link)`
   color: #fff;
   text-decoration: underline;
   padding: 2px 16px 7px;
-  margin: 20px 84px 0px auto;
+  margin: 20px 94px 0px auto;
   font-size: 20px;
   border-radius: 16px;
   background-color: #000;
@@ -110,7 +110,7 @@ const Header = ({ noHead, backButton }) => {
           <Back src={ArrowBack} alt="arrow back" />
         }
       </LogoLink>
-      <ToMap to="/map">Map</ToMap>
+      {/* <ToMap to="/map">Map</ToMap> */}
       <MenuButton menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
       <MobileMenu data={cleanedData} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <DesktopMenu data={cleanedData} />
