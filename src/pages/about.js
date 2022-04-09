@@ -36,7 +36,7 @@ prismicAbout{
         }
         style
         type_link
-        font_grootte
+        font_size
         text_hyperlink_or_space
       }
     }

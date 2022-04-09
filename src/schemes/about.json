@@ -14,13 +14,14 @@
             "type": "Select",
             "config": {
               "options": [
-                "nieuwe regel",
-                "in zelfde regel"
+                "in same line",
+                "new line"
               ],
+              "default_value": "in same line",
               "label": "style"
             }
           },
-          "font_grootte": {
+          "font_size": {
             "type": "Select",
             "config": {
               "options": [
@@ -28,7 +29,7 @@
                 "big"
               ],
               "default_value": "small",
-              "label": "font_grootte"
+              "label": "font_size"
             }
           },
           "text_hyperlink_or_space": {

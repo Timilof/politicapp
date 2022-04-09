@@ -18,7 +18,7 @@ const StyledText = styled(MainText)`
     display: inline;
     margin: 0;
     padding: 0;
-    display: ${props => (props.regel === "nieuwe regel" ? "block" : "inline")};
+    display: ${props => (props.style === "in new line" ? "block" : "inline")};
     font-size: ${props => (props.sizing === "big" ? "21px" : "14px")};
     font-weight: ${props => (props.sizing === "big" ? "800" : "initial")};
 `;
@@ -35,11 +35,11 @@ const TextLinkBlock = ({item}) => {
 
     let element;
     if(item.text_hyperlink_or_space === "text"){
-        element = <StyledText sizing={item.font_size} regel={item.style} text={`${item.content.text} `} />
+        element = <StyledText sizing={item.font_size} style={item.style} text={`${item.content.text} `} />
     }else if(item.text_hyperlink_or_space === "header"){
         element = <Heading1 text={`${item.content.text} `} />
     }else if(item.text_hyperlink_or_space === "link"){
-        element = <Linkage regel={item.style} href={`${item.type_link}${item.content.text}`}>{item.content.text}</Linkage>
+        element = <Linkage style={item.style} href={`${item.type_link}${item.content.text}`}>{item.content.text}</Linkage>
     }else{
         element = <Spacer/>
     }

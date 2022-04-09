@@ -89,6 +89,7 @@ const event = ({ data }) => {
           : '') + ` `+ data.time.text}
         />
         <TLBWrapper content={data.price} />
+        <MetaData text={`Lang: ${data.language}`} />
         <MetaData text={data.streaming_possible !== null || data.streaming_possible === true ? "Streaming possible" : ''} />
         <MetaData text={data.wheelchair_accessible !== null || data.wheelchair_accessible === true ? "wheelchair accessible" : ''} />
       </MetaWrapper>
