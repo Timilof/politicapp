@@ -35,7 +35,12 @@ const LogoLink = styled(Link)`
     margin: 0;
     z-index: 99;
     overflow: hidden;
-    padding: 0;
+    padding: ${props => (props.backButton ? "0 10px" : "0")};
+    border: none;
+    height: ${props => (props.backButton ?? "40px")};
+    background: none;
+    display: ${props => (props.backButton ? "flex" : "initial")};
+    justify-content: center;
 
     @media (${({ theme }) => theme.respondTo.tablet}) {
       align-items: baseline;
@@ -77,39 +82,48 @@ const ToMap = styled(Link)`
 
 const Header = ({ noHead, backButton }) => {
 
+  const goBack = (e) => {
+    {typeof window !== undefined &&
+      e.preventDefault()
+      window.history.back()
+    }
+  }
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   const data = useStaticQuery(graphql`
-        query {
-          prismicMenu{
-            data{
-              menu_item{
-              where_to
-              link_display{
-                text
-              }
-              externe_link_adress{
-                text
-              }
-              }
-            }
+    query {
+      prismicMenu{
+        data{
+          menu_item{
+          where_to
+          link_display{
+            text
+          }
+          externe_link_adress{
+            text
+          }
           }
         }
-      `);
+      }
+    }
+  `);
 
       
-      const cleanedData = data.prismicMenu.data.menu_item;
+  const cleanedData = data.prismicMenu.data.menu_item;
 
   return(
     <StyledHeader>
-      <LogoLink to="/">
-        {!noHead && 
+      {!noHead && 
+        <LogoLink to="/">
           <Logo menuOpen={menuOpen} src={LogoSrc} alt="Go to politicapp home"/>
-        }
-        {backButton && 
+        </LogoLink>
+      }
+      {backButton && 
+        <LogoLink backButton={backButton} as="button" onClick={goBack}>
           <Back src={ArrowBack} alt="arrow back" />
-        }
-      </LogoLink>
+        </LogoLink>
+      }
       {/* <ToMap to="/map">Map</ToMap> */}
       <MenuButton menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
       <MobileMenu data={cleanedData} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
