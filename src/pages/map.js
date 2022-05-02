@@ -33,12 +33,12 @@ const CenterNotice = styled.div`
   align-items: center;
 `;
 
-const StyledNotice = styled(Maintext)`
+const Wrapper = styled.div`
   border: 1px solid #eee;
-  background-color: ${(({ theme }) => theme.blue)};
+  background-color: ${(({ theme }) => theme.white)};
+  padding: 14px 10px;
   border-radius: 8px;
-  padding: 4px 10px;
-  color: ${(({ theme }) => theme.white)};
+  margin: 0 30px;
 `;
 
 // const MyMarker = styled(Marker)`
@@ -63,7 +63,7 @@ const StyledNotice = styled(Maintext)`
 //     border-top-right-radius: 30px;
 //     border-top-left-radius: 30px;
 // }
-    
+
 // //     @media (${({ theme }) => theme.respondTo.desktop}) {
 // //         display: none;
 // //     }
@@ -81,14 +81,14 @@ const StyledNotice = styled(Maintext)`
 //     right: 16px;
 //     transform: rotate(135deg);
 //     outline: ${({ theme }) => theme.blue};
-    
+
 //     @media (${({ theme }) => theme.respondTo.tablet}) {
 //        display: none;
 //       }
 // `;
 
 const mapPage = () => {
-  
+
   // const eventsTemporary = data.allPrismicEvent.edges;
   // const [dataOpen, setDataOpen] = useState(true);
   // const [renderEvents, setRenderEvents] = useState([]);
@@ -144,7 +144,7 @@ const mapPage = () => {
   //           lan: 4.8894
   //       },
   //   ];
-    
+
     // function sortEventvenues(event){
     //   console.log(event)
     //     for (let index = 0; index < venueLatLan.length; index++) {
@@ -152,7 +152,7 @@ const mapPage = () => {
     //       if (element.name === (event.geo_location !== null ? event.geo_location.toLowerCase() : 'spui 25') || event.name){
     //         return {
     //           ...event,
-    //           lat: element.lat,  
+    //           lat: element.lat,
     //           lan: element.lan
     //         }
     //       }
@@ -202,12 +202,15 @@ const mapPage = () => {
         <Layout background={`#fff`} margins={`0`}>
           <SEO title="PoliticApp home" />
           <CenterNotice>
-            <StyledNotice text="Coming very soon!!" />
+          <Wrapper>
+            <Maintext text="Maps page is coming soon, along with other features on our website. This is all run by volunteers and if your interested in helping us out please contact us at: " />
+            <a href="mailto:polticapp@gmail.com">polticapp@gmail.com</a>
+          </Wrapper>
           </CenterNotice>
         </Layout>
   );
-   
-  // return ( 
+
+  // return (
   //     <Layout background={`#fff`} margins={`0`}>
   //         <SEO title="PoliticApp home" />
   //         <MapContainer center={position} zoom={13} scrollWheelZoom={false} zoomControl={false} tap={false}>
