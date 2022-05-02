@@ -65,8 +65,8 @@ const ImageContainer = styled.div`
 const MarginWrapper = styled(TLBWrapper)`
   margin: 0 14px;
 `;
-    
-const StyledHeading2 = styled(Heading2)`    
+
+const StyledHeading2 = styled(Heading2)`
   margin: 10px;
 `;
 
@@ -91,7 +91,7 @@ const event = ({ data }) => {
         <TLBWrapper content={data.price} />
         <MetaData text={`Lang: ${data.language}`} />
         <MetaData text={data.streaming_possible !== null || data.streaming_possible === true ? "Streaming possible" : ''} />
-        <MetaData text={data.wheelchair_accessible !== null || data.wheelchair_accessible === true ? "wheelchair accessible" : ''} />
+        <MetaData text={data.wheelchair_accessible !== null || data.wheelchair_accessible === true ? "Wheelchair accessible" : ''} />
       </MetaWrapper>
       <MarginWrapper content={data.about_event}/>
       <LinkWrapper>
