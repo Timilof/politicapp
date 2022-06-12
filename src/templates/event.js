@@ -1,5 +1,6 @@
 import React from "react"
 
+import ICalendarLink from "react-icalendar-link";
 import moment from "moment";
 import { graphql, Link } from 'gatsby';
 
@@ -39,6 +40,18 @@ const MetaWrapper = styled.div`
     }
 `;
 
+const AddToCalendarLink = styled(ICalendarLink)`
+  display: block;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 18px;
+  background-color: ${props => (props.color ? props.color : "#1552F0")};
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 1px;
+`;
+
 const LinkWrapper = styled.div`
     position: fixed;
     bottom: 0;
@@ -72,6 +85,12 @@ const StyledHeading2 = styled(Heading2)`
 
 const event = ({ data }) => {
   data = data.prismicEvent.data
+  const event = {
+    title: data.title.text,
+    description: "My Description",
+    startTime: moment(data.start_date +' '+ data.time.text).format("YYYY-MM-DDTHH:mm:ssZ"),
+    location: (data.geo_location === null || data.geo_location === 'other' ? data.venue_location.text : data.geo_location),
+  }
 
   return(
     <>
@@ -95,9 +114,9 @@ const event = ({ data }) => {
       </MetaWrapper>
       <MarginWrapper content={data.about_event}/>
       <LinkWrapper>
-      {/* todo */}
         <ActionButton color={"#2CB04C"} href={data.payment_link.url} text={"Get tickets"} />
-        {/* <ActionButton href={"#calendar"} text={"Add to calendar"} /> */}
+      {/* todo */}
+        <AddToCalendarLink filename={`${data.title.text}-PoliticApp.ics`} event={event}>Add to Calendar</AddToCalendarLink>
       </LinkWrapper>
     </Layout>
     </>
